@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion Android.targetSdk
+
+    defaultConfig {
+        minSdkVersion Android.minSdk
+        targetSdkVersion Android.targetSdk
+        testInstrumentationRunner Android.testRunner
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+    implementation Libs.kotlin
+
+    implementation Libs.coreKtx
+
+    implementation project(':object')
+
+    testImplementation Libs.junit
+    testImplementation Libs.runner
+    testImplementation Libs.roboelectric
+
+    androidTestImplementation Libs.junit
+    androidTestImplementation Libs.runner
+}
